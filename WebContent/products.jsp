@@ -26,6 +26,11 @@
 				<f:param name="id" value="#{product.id}" />
 			</h:commandLink>
 		</td>
+		<td>
+			<h:commandLink action="#{productController.removeProduct}" value="Elimina">
+				<f:param name="id" value="#{product.id}" />
+			</h:commandLink>
+		</td>
 		</tr>
 	</c:forEach>
 </table>

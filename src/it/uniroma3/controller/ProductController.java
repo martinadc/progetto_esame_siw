@@ -49,6 +49,12 @@ public class ProductController {
 		return "product";
 	}
 	
+	public String removeProduct() {
+		productFacade.deleteProduct(id);
+		return "remove";
+	}
+	
+	
 	public Long getId() {
 		return id;
 	}

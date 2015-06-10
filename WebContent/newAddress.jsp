@@ -14,7 +14,7 @@
 		<h:form>
 			<div>
 				Via:
-				<h:inputText value="via/p.zza, civico #{addressController.street}" required="true"
+				<h:inputText value="#{addressController.street}" required="true"
 					requiredMessage="Campo Via obbligatorio" id="street" />
 				<h:message for="street" />
 			</div>
@@ -41,7 +41,7 @@
 			</div>
 			<div>
 				Provincia:
-				<h:inputText value=" inserisci sigla #{addressController.province}" required="true"
+				<h:inputText value="#{addressController.province}" required="true"
 					requiredMessage="Campo Provincia obbligatorio" id="province" />
 				<h:message for="province" />
 			</div>

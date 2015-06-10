@@ -1,5 +1,7 @@
 package it.uniroma3.controller;
 
+import java.util.List;
+
 import it.uniroma3.model.Customer;
 import it.uniroma3.model.CustomerFacade;
 
@@ -22,7 +24,7 @@ public class CustomerController {
 	private String registrationDate;
 	
 	private Customer customer;
-//	private List<Customer> customers;
+	private List<Customer> customers;
 	
 	@EJB(beanName="cFacade")
 	private CustomerFacade customerFacade;
@@ -32,14 +34,19 @@ public class CustomerController {
 		return "customer"; 
 	}
 	
-//	public String listCustomers() {
-//		this.customers = customerFacade.getAllCustomers();
-//		return "customers"; 
-//	}
+	public String listCustomers() {
+		this.customers = customerFacade.getAllCustomers();
+		return "customers"; 
+	}
 
 	public String findCustomer() {
 		this.customer = customerFacade.getCustomer(id);
 		return "customer";
+	}
+	
+	public String removeCustomer() {
+		customerFacade.deleteCustomer(id);
+		return "remove";
 	}
 	
 		
@@ -115,11 +122,11 @@ public class CustomerController {
 		this.customer = customer;
 	}
 
-//	public List<Customer> getCustomers() {
-//		return customers;
-//	}
-//
-//	public void setCustomers(List<Customer> customers) {
-//		this.customers = customers;
-//	}
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+	public void setCustomers(List<Customer> customers) {
+		this.customers = customers;
+	}
 }
