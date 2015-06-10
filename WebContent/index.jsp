@@ -18,6 +18,7 @@
 					<h:commandLink action="#{productController.listProducts}"
 						value="Catalogo Prodotti" />
 				</h:form></li>
+			<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Inserisci nuovo Cliente</a></li>
 		</ul>
 	</f:view>
 </body>

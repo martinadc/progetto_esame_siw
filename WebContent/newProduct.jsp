@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=US-ASCII" pageEncoding="US-ASCII"%>
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,16 +14,16 @@
 <h:form>
     <div>Nome: <h:inputText value="#{productController.name}" 
                      required="true"
-                     requiredMessage="Name is mandatory" id="name"/> <h:message for="name" />
+                     requiredMessage="campo Nome obbligatorio" id="name"/> <h:message for="name" />
 	</div>
     <div>Codice: <h:inputText value="#{productController.code}" 
                      required="true"
-                     requiredMessage="Code is mandatory" id="code"/> <h:message for="code" />
+                     requiredMessage="campo Codice obbligatorio" id="code"/> <h:message for="code" />
 	</div>
     <div>Prezzo: <h:inputText value="#{productController.price}" 
                      required="true"
-                     requiredMessage="Price is mandatory"
-                     converterMessage="Price must be a number"
+                     requiredMessage="campo Prezzo obbligatorio"
+                     converterMessage="Prezzo deve essere un numero"
                      id="price"/> <h:message for="price" />
 	</div>
     <div>Descrizione: <h:inputTextarea value="#{productController.description}" 
@@ -32,8 +33,8 @@
     </div>
     <div>Quantita' Disponibile: <h:inputText value="#{productController.quantity}" 
                      required="true"
-                     requiredMessage="Quantity is mandatory"
-                     converterMessage="Quantity must be a number"
+                     requiredMessage="campo Quantita' obbligatorio"
+                     converterMessage="Quantita' deve essere un numero"
                      id="quantity"/> <h:message for="quantity" />
 	</div>
 	<div>

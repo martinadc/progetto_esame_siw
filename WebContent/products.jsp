@@ -30,6 +30,11 @@
 	</c:forEach>
 </table>
 </h:form>
+	<br>
+	<br>
+	<div>
+		<a href='<c:url value="/faces/index.jsp" />'>Torna alla Homepage</a>
+	</div>
 </f:view>
 
 </body>
