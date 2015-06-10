@@ -25,11 +25,11 @@
 	 </div>
 	 <div>Numero di Telefono: <h:inputText value="#{customerController.phoneNumber}"/>
 	 </div>
-	 <div>Data di Nascita: 	<h:inputText value="#{customerController.dateOfBirth}" 
+	 <div>Data di Nascita: 	<h:inputText value="gg/mm/aaaa #{customerController.dateOfBirth}" 
                      required="true"
                      requiredMessage="campo Data di Nascita obbligatorio" id="dateofbirth"/> <h:message for="dateofbirth" />
       </div>
-	 <div>Data di Registrazione: <h:inputText value="#{customerController.registrationDate}" 
+	 <div>Data di Registrazione: <h:inputText value="gg/mm/aaaa #{customerController.registrationDate}" 
                      required="true"
                      requiredMessage="campo Data di Registrazione obbligatorio" id="registrationdate"/> <h:message for="registrationdate" />
 	 </div>
