@@ -24,10 +24,6 @@
 								value="Mostra Dettagli">
 								<f:param name="id" value="#{address.id}" />
 							</h:commandLink></td>
-						<td><h:commandLink
-								action="#{addressController.removeAddress}" value="Elimina">
-								<f:param name="id" value="#{address.id}" />
-							</h:commandLink></td>
 					</tr>
 				</c:forEach>
 			</table>

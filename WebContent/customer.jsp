@@ -18,6 +18,13 @@
 	<div>Data di Nascita: ${customerController.customer.dateOfBirth} </div>
 	<div>Data di Registrazione: ${customerController.customer.registrationDate} </div>
 	<br>
+	<h2>Dettagli dell' indirizzo</h2>
+	<div>Via: ${customerController.customer.address.street}</div>
+	<div>Citta': ${customerController.customer.address.city}</div>
+	<div>Stato: ${customerController.customer.address.state}</div>
+	<div>CAP: ${customerController.customer.address.cap}</div>
+	<div>Provincia: ${customerController.customer.address.province}</div>
+	<br>
 	<br>
 	<div>
 		<a href='<c:url value="/faces/index.jsp" />'>Torna alla Homepage</a>
