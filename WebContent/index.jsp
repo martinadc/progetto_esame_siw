@@ -24,6 +24,10 @@
 					<h:commandLink action="#{customerController.listCustomers}"
 						value="Anagrafica Clienti" />
 				</h:form></li>
+			<li><h:form>
+					<h:commandLink action="#{addressController.listAddress}"
+						value="Rubrica Indirizzi" />
+				</h:form></li>
 		</ul>
 	</f:view>
 </body>

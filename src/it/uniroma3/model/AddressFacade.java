@@ -1,8 +1,11 @@
 package it.uniroma3.model;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 @Stateless(name="aFacade")
 public class AddressFacade {
@@ -32,6 +35,12 @@ public class AddressFacade {
 	public void deleteAddress(Long id) {
         Address address = em.find(Address.class, id);
         deleteAddress(address);
+	}
+	
+	public List<Address> getAllAddresses() {
+		TypedQuery<Address> query = this.em.createNamedQuery("findAllAddresses", Address.class);
+		List<Address> addressList = query.getResultList();
+		return addressList;
 	}
 }
 

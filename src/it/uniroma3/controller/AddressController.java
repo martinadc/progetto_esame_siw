@@ -32,17 +32,20 @@ public class AddressController {
 		return "address"; 
 	}
 
-
-//	public String listAddress() {
-//		this.addresses = addressFacade.getAllAddresses();
-//		return "addresses"; 
-//	}
+	public String listAddress() {
+		this.addresses = addressFacade.getAllAddresses();
+		return "addresses"; 
+	}
 
 	public String findAddress() {
 		this.address = addressFacade.getAddress(id);
 		return "address";
 	}
 
+	public String removeAddress() {
+		addressFacade.deleteAddress(id);
+		return "remove";
+	}
 
 	public Long getId() {
 		return id;
