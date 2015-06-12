@@ -19,8 +19,7 @@
 						value="Catalogo Prodotti" />
 				</h:form></li>
 			<li><a href='<c:url value="/faces/newCustomer.jsp" />'>Inserisci nuovo Cliente</a></li>
-	   <!-- <li><a href='<c:url value="/faces/newAddress.jsp" />'>Inserisci nuovo Indirizzo</a></li> -->
-			<li><h:form>
+	  		<li><h:form>
 					<h:commandLink action="#{customerController.listCustomers}"
 						value="Anagrafica Clienti" />
 				</h:form></li>

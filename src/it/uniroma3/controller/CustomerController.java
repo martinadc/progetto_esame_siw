@@ -2,6 +2,7 @@ package it.uniroma3.controller;
 
 import java.util.List;
 
+import it.uniroma3.login.DataLog;
 import it.uniroma3.model.Address;
 import it.uniroma3.model.Customer;
 import it.uniroma3.model.CustomerFacade;
@@ -19,10 +20,12 @@ public class CustomerController {
 	private Long id;
 	private String name;
 	private String surname;
-	private String email;
 	private String phoneNumber;
 	private String dateOfBirth;
 	private String registrationDate;
+	
+	private String email;
+	private String password;
 	
 	private String street;
 	private String city;
@@ -30,6 +33,7 @@ public class CustomerController {
 	private Long cap;
 	private String state;	
 	
+	private DataLog datalog;
 	private Address address;
 	
 	private Customer customer;
@@ -40,10 +44,12 @@ public class CustomerController {
 	
 	public String createCustomer() {
 		this.address = new Address(street, city, province, cap, state);
-		this.customer = new Customer(name, surname, email, phoneNumber, dateOfBirth, registrationDate);
+		this.datalog = new DataLog(email, password);
+		this.customer = new Customer(name, surname, phoneNumber, dateOfBirth, registrationDate);
 		this.customer.setAddress(address);
+		this.customer.setDatalog(datalog);
+		this.datalog.setCustomer(customer);
 		customerFacade.createCustomer(customer);
-//		this.customer = customerFacade.createCustomer(name, surname, email, phoneNumber, dateOfBirth, registrationDate);
 		return "customer";  
 	}
 	
@@ -85,14 +91,6 @@ public class CustomerController {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getPhoneNumber() {
@@ -159,13 +157,22 @@ public class CustomerController {
 	public void setState(String state) {
 		this.state = state;
 	}
-
-	public Address getAddress() {
-		return address;
+	
+	//getter e setter credenziali
+	public String getEmail() {
+		return email;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public CustomerFacade getCustomerFacade() {
@@ -191,4 +198,21 @@ public class CustomerController {
 	public void setCustomers(List<Customer> customers) {
 		this.customers = customers;
 	}
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public DataLog getDatalog() {
+		return datalog;
+	}
+
+	public void setDatalog(DataLog datalog) {
+		this.datalog = datalog;
+	}
+	
 }

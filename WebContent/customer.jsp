@@ -13,7 +13,6 @@
 	<h1>Dettagli del Cliente</h1>
 	<div>Nome: ${customerController.customer.name} </div>
 	<div>Cognome: ${customerController.customer.surname} </div>
-	<div>Email: ${customerController.customer.email} </div>
 	<div>Numero di Telefono: ${customerController.customer.phoneNumber} </div>
 	<div>Data di Nascita: ${customerController.customer.dateOfBirth} </div>
 	<div>Data di Registrazione: ${customerController.customer.registrationDate} </div>
@@ -24,6 +23,10 @@
 	<div>Stato: ${customerController.customer.address.state}</div>
 	<div>CAP: ${customerController.customer.address.cap}</div>
 	<div>Provincia: ${customerController.customer.address.province}</div>
+	<br>
+	<h3>Credenziali Cliente</h3> 
+	<div>Email: ${customerController.customer.datalog.email}</div>
+	<div>Password: ${customerController.customer.datalog.password}</div>
 	<br>
 	<br>
 	<div>

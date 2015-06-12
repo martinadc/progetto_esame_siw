@@ -1,5 +1,7 @@
 package it.uniroma3.model;
 
+import it.uniroma3.login.DataLog;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,27 +25,25 @@ public class Customer {
 	private String name;
 	@Column(nullable = false)
 	private String surname;
-
-	private String email;
 	private String phoneNumber;
-	
-	private String dateOfBirth;
+		private String dateOfBirth;
 	private String registrationDate;
 	
 //	@OneToMany(mappedBy = "customer", cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
 //	private List<Order> orders;
 	
-	@OneToOne(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
+	@OneToOne(cascade= {CascadeType.ALL})
 	private Address address;
+	
+	@OneToOne(cascade= {CascadeType.ALL})
+	private DataLog datalog;
 	
 	public Customer(){
 	}
 
-	public Customer(String name, String surname, String email,
-			String phoneNumber, String dateOfBirth, String registrationDate) {
+	public Customer(String name, String surname, String phoneNumber, String dateOfBirth, String registrationDate) {
 		this.name = name;
 		this.surname = surname;
-		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.dateOfBirth = dateOfBirth;
 		this.registrationDate = registrationDate;
@@ -72,14 +72,6 @@ public class Customer {
 
 	public void setSurname(String surname) {
 		this.surname = surname;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getPhoneNumber() {
@@ -114,6 +106,15 @@ public class Customer {
 		this.address = address;
 	}
 	
+	public DataLog getDatalog() {
+		return datalog;
+	}
+
+	public void setDatalog(DataLog datalog) {
+		this.datalog = datalog;
+	}
+
+	
 //	public List<Order> getOrders() {
 //		return orders;
 //	}
@@ -125,8 +126,7 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + name
-				+ ", lastName=" + surname + ", email=" + email
-				+ ", phoneNumber=" + phoneNumber + ", dateOfBirth="
+				+ ", lastName=" + surname + ", phoneNumber=" + phoneNumber + ", dateOfBirth="
 				+ dateOfBirth + ", registrationDate=" + registrationDate+ "]";
 //				+ ", orders=" + orders + ", address=" + address + "]";
 	}

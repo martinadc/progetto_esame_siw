@@ -14,13 +14,6 @@ public class CustomerFacade {
 	private EntityManager em;
 
 	/** OPERAZIONI CRUD **/
-//	public Customer createCustomer(String name, String surname, String email, String phoneNumber, String dateOfBirth,
-//			String registrationDate) {
-//		Customer customer = new Customer(name, surname, email, phoneNumber, dateOfBirth, registrationDate);
-//		em.persist(customer);
-//		return customer;
-//	}
-
 	public void createCustomer(Customer customer) {
 		em.persist(customer);		
 	}

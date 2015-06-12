@@ -23,11 +23,6 @@
 					requiredMessage="campo Cognome obbligatorio" id="surname" /> <h:message for="surname" />
 			</div>
 			<div>
-				Email: <h:inputText value="#{customerController.email}" 
-					required="true"
-					requiredMessage="campo Email obbligatorio" id="email" /> <h:message for="email" />
-			</div>
-			<div>
 				Numero di Telefono:	<h:inputText value="#{customerController.phoneNumber}" />
 			</div>
 			<div>
@@ -42,6 +37,19 @@
 					required="true"
 					requiredMessage="campo Data di Registrazione obbligatorio"
 					id="registrationdate" /> <h:message for="registrationdate" />
+			</div>
+			<br>
+			<div>
+				Email:<h:inputText value="#{customerController.email}"
+					required="true"
+					requiredMessage="campo Email obbligatorio"
+					id="email" /> <h:message for="email" />
+			</div>
+			<div>
+				Password:<h:inputText value="#{customerController.password}"
+					required="true"
+					requiredMessage="campo Password obbligatorio"
+					id="password" /> <h:message for="password" />
 			</div>
 			<br>
 			<div>
