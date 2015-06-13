@@ -7,11 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "data_log")
+@NamedQueries({@NamedQuery(name = "findCustomer", query = "SELECT d.customer FROM DataLog d WHERE d.email = :email") , @NamedQuery(name = "findDatalog", query= "SELECT d FROM DataLog d WHERE d.email = :email")})
 public class DataLog {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

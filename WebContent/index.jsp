@@ -27,6 +27,7 @@
 					<h:commandLink action="#{addressController.listAddress}"
 						value="Rubrica Indirizzi" />
 				</h:form></li>
+			<li><a href='<c:url value="/faces/findCustomer.jsp" />'>Verifica Credenziali</a></li>
 		</ul>
 	</f:view>
 </body>
