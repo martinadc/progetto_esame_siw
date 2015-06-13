@@ -3,6 +3,7 @@ package it.uniroma3.controller;
 import it.uniroma3.login.DataLog;
 import it.uniroma3.login.DatalogFacade;
 import it.uniroma3.model.Customer;
+
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
@@ -25,18 +26,21 @@ public class LoginController {
 	private DataLog datalog;
 	private Customer customer;		 //CLIENTE CORRENTE PER LA SESSIONE
 
+
+		
 	public String verificaCredenziali() {
-		String nextPage;
-		if(ruolo.equals("cliente"))
-			nextPage = verificaCredenzialiCliente();
-
-		if(ruolo.equals("amministratore"))
-			nextPage = verificaCredenzialiAdmin();
-		else return "errore";
-		return nextPage;
-
+		String nextPage = "index";
+		if(ruolo.equals("cliente")){
+			return	nextPage = verificaCredenzialiCliente();
+		}
+		if(ruolo.equals("amministratore")) 
+			return	nextPage = verificaCredenzialiAdmin();
+		else 
+			return nextPage;
+		
+		
 	}
-
+	
 	private String verificaCredenzialiCliente() {
 		this.customer = datalogFacade.findCustomerByEmail(email);
 		if(customer != null) {  
