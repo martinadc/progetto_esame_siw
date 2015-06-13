@@ -6,24 +6,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>VIDEO.it</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>index Cliente</title>
 </head>
 <body>
 	<f:view>
 		<h1>Benvenuto su VIDEO.it</h1>
 		<ul>
-
 			<li><h:form>
 					<h:commandLink action="#{productController.listProducts}"
 						value="Catalogo Prodotti" />
 				</h:form></li>
-
-			<li><h:form>
-					<a href='<c:url value="/faces/login.jsp" />'>Log-in</a>
-				</h:form></li>
-
-
+		
 		</ul>
 	</f:view>
 </body>
