@@ -1,5 +1,6 @@
 package it.uniroma3.login;
 
+import it.uniroma3.model.Admin;
 import it.uniroma3.model.Customer;
 
 import javax.persistence.Column;
@@ -27,6 +28,9 @@ public class DataLog {
 	
 	@OneToOne(mappedBy = "datalog")
 	private Customer customer;
+	
+	@OneToOne(mappedBy = "datalogAdmin")
+	private Admin admin;
 	
 	public DataLog(){
 	}
@@ -67,5 +71,15 @@ public class DataLog {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+	
+	
 	
 }

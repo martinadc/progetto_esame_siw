@@ -12,7 +12,7 @@
 <body>
 <f:view>
  
- <h1>ERRORE:log-in non risucito!</h1>
+ <h1>ERRORE:log-in non riuscito!</h1>
  <h2>email o password errati!</h2>
 <div>
 		<a href='<c:url value="/faces/login.jsp" />'>torna alla pagina di log-in</a>

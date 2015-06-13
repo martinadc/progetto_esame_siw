@@ -23,7 +23,6 @@
 					<a href='<c:url value="/faces/login.jsp" />'>Log-in</a>
 				</h:form></li>
 
-
 		</ul>
 	</f:view>
 </body>

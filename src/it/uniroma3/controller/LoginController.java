@@ -3,7 +3,6 @@ package it.uniroma3.controller;
 import it.uniroma3.login.DataLog;
 import it.uniroma3.login.DatalogFacade;
 import it.uniroma3.model.Customer;
-
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
@@ -13,38 +12,55 @@ import javax.faces.bean.ManagedProperty;
 @ManagedBean
 @SessionScoped
 public class LoginController {
-	
+
 	@ManagedProperty(value="#{param.id}")
 	private Long id;
-	
-	
 	private String email;
 	private String password;
 	private String ruolo;
-	
+
 	@EJB(beanName="dataFacade")
 	private DatalogFacade datalogFacade;
-	
+
 	private DataLog datalog;
-	private Customer customer;
+	private Customer customer;		 //CLIENTE CORRENTE PER LA SESSIONE
 
+	public String verificaCredenziali() {
+		String nextPage;
+		if(ruolo.equals("cliente"))
+			nextPage = verificaCredenzialiCliente();
 
-	
-    public String verificaCredenziali() {
-    	this.datalog = datalogFacade.findDatalogByEmail(email);
-    	if(datalog == null) {
-    		return "errore";
-    	}
-    	else if(datalog.getPassword().equals(password)) {
-    		if(ruolo.equals("cliente"))
-    			return "indexCliente";
-    		else
-    			return "indexAdmin";
-    	}
-    	else return "errore";
-      		
-    }
-    
+		if(ruolo.equals("amministratore"))
+			nextPage = verificaCredenzialiAdmin();
+		else return "errore";
+		return nextPage;
+
+	}
+
+	private String verificaCredenzialiCliente() {
+		this.customer = datalogFacade.findCustomerByEmail(email);
+		if(customer != null) {  
+			this.datalog = customer.getDatalog();
+
+			if(datalog.getPassword().equals(password)) 
+				return "indexCliente";
+			else
+				return "errore";
+		}
+		else return "errore";
+	}
+
+	private String verificaCredenzialiAdmin() {
+		this.datalog = datalogFacade.findDatalogByEmail(email);
+		if (datalog != null ) {
+			if(datalog.getPassword().equals(password)) 
+				return "indexAdmin";
+			else
+				return "errore";
+		}
+		else return "errore";
+	}
+
 
 
 	public Long getId() {
@@ -115,7 +131,5 @@ public class LoginController {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-		
-	
-	
+
 }

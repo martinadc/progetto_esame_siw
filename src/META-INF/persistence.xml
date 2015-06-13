@@ -9,6 +9,8 @@
 		<class>it.uniroma3.model.Address</class>
 		<class>it.uniroma3.model.Product</class>
 		<class>it.uniroma3.model.Provider</class>
+		<class>it.uniroma3.model.Admin</class>
+		<class>it.uniroma3.login.DataLog</class>
 		<properties>
 			<property name="openjpa.jdbc.DBDictionary" value="postgres" />
   			<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(SchemaAction=add,ForeignKeys=true)" /> 

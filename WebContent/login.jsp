@@ -23,14 +23,10 @@
  <div> Ruolo:
     <h:selectOneMenu value="#{loginController.ruolo}">
         <f:selectItem itemValue="cliente" itemLabel="cliente" />
-        <f:selectItem itemValue="admin" itemLabel="amministratore" />
+        <f:selectItem itemValue="amministratore" itemLabel="amministratore" />
     </h:selectOneMenu>
   </div>  
 
- 
- 
- 
- 
       
 <div>
 		<h:commandButton value="Login"  action="#{loginController.verificaCredenziali}"/>

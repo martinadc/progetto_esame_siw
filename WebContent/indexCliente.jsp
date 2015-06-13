@@ -11,13 +11,14 @@
 </head>
 <body>
 	<f:view>
+		
+		<h1>Ciao ${loginController.customer.name} !</h1>
 		<h1>Benvenuto su VIDEO.it</h1>
 		<ul>
 			<li><h:form>
 					<h:commandLink action="#{productController.listProducts}"
 						value="Catalogo Prodotti" />
 				</h:form></li>
-		
 		</ul>
 	</f:view>
 </body>
