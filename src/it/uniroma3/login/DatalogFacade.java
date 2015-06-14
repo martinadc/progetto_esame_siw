@@ -1,5 +1,6 @@
 package it.uniroma3.login;
 
+import it.uniroma3.model.Admin;
 import it.uniroma3.model.Customer;
 
 import javax.ejb.Stateless;
@@ -59,6 +60,18 @@ public class DatalogFacade {
 			query.setParameter("email", email);
 			DataLog datalog = (DataLog) query.getSingleResult();
 			return datalog;
+		}
+		catch(Exception ex){
+			return null;
+		}
+	}
+	
+	public Admin findAdminByEmail(String email) {
+		try {
+			Query query = this.em.createNamedQuery("findAdmin", Admin.class);
+			query.setParameter("email", email);
+			Admin admin = (Admin) query.getSingleResult();
+			return admin;
 		}
 		catch(Exception ex){
 			return null;

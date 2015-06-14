@@ -11,7 +11,7 @@
 </head>
 <body>
 	<f:view>
-		<h1>Benvenuto sul tuo Pannello di Controllo</h1>
+		<h1>${loginController.admin.name}, Benvenuto sul tuo Pannello di Controllo</h1>
 		<ul>
 			<li><a href='<c:url value="/faces/newProduct.jsp" />'>Inserisci nuovo Prodotto</a></li>
 			<li><h:form>

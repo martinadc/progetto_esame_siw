@@ -15,7 +15,7 @@
 	<div>Data Chiusura: ${orderController.order.closeTime} </div> 
 	<div>Data Evasione: ${orderController.order.evasionTime} </div>
 	<br> 
-	<div>Nome Cliente: ${orderController.order.customer.name} </div> 
+	<div>Nome Cliente: ${orderController.order.customer.name} </div>   
 	<br>
 	<br>
 	<div>

@@ -24,13 +24,11 @@
 	<div>CAP: ${customerController.customer.address.cap}</div>
 	<div>Provincia: ${customerController.customer.address.province}</div>
 	<br>
-	<h3>Credenziali Cliente</h3> 
-	<div>Email: ${customerController.customer.datalog.email}</div>
-	<div>Password: ${customerController.customer.datalog.password}</div>
-	<br>
 	<br>
 	<div>
-		<a href='<c:url value="/faces/index.jsp" />'>Torna alla Homepage</a>
+		<h:form>
+			<h:commandLink action="#{loginController.tornaAllaHomepage}" value = "Torna alla Homepage"/>
+		</h:form>
 	</div>
 </f:view>
 </body>

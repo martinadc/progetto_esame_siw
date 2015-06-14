@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "data_log")
-@NamedQueries({@NamedQuery(name = "findCustomer", query = "SELECT d.customer FROM DataLog d WHERE d.email = :email") , @NamedQuery(name = "findDatalog", query= "SELECT d FROM DataLog d WHERE d.email = :email")})
+@NamedQueries({@NamedQuery(name = "findCustomer", query = "SELECT d.customer FROM DataLog d WHERE d.email = :email") , @NamedQuery(name = "findDatalog", query= "SELECT d FROM DataLog d WHERE d.email = :email"), @NamedQuery(name = "findAdmin", query = "SELECT d.admin FROM DataLog d WHERE d.email = :email")})
 public class DataLog {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -32,6 +32,11 @@
 				<f:param name="id" value="#{order.id}" />
 			</h:commandLink>
 		</td>
+		<td>
+			<h:commandLink action="#{customerController.findCustomer}" value="Mostra Cliente">
+				<f:param name="id" value="#{order.customer.id}" />
+			</h:commandLink>
+		</td>
 		</tr>
 	</c:forEach>
 </table>
@@ -39,7 +44,9 @@
 	<br>
 	<br>
 	<div>
-		<a href='<c:url value="/faces/index.jsp" />'>Torna alla Homepage</a>
+		<h:form>
+			<h:commandLink action="#{loginController.tornaHomepageAdmin}" value = "Torna alla tua Homepage"/>
+		</h:form>
 	</div>
 </f:view>
 

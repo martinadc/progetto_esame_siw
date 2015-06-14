@@ -37,7 +37,9 @@
 	<br>
 	<br>
 	<div>
-		<a href='<c:url value="/faces/index.jsp" />'>Torna alla Homepage</a>
+		<h:form>
+			<h:commandLink action="#{loginController.tornaHomepageAdmin}" value = "Torna alla tua Homepage"/>
+		</h:form>
 	</div>
 </f:view>
 </body>

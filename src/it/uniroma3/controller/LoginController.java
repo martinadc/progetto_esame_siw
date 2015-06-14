@@ -2,6 +2,7 @@ package it.uniroma3.controller;
 
 import it.uniroma3.login.DataLog;
 import it.uniroma3.login.DatalogFacade;
+import it.uniroma3.model.Admin;
 import it.uniroma3.model.Customer;
 
 import javax.ejb.EJB;
@@ -26,7 +27,9 @@ public class LoginController {
 	private DatalogFacade datalogFacade;
 
 	private DataLog datalog;
+	private DataLog datalogAdmin;
 	private Customer customer;		 //CLIENTE CORRENTE PER LA SESSIONE
+	private Admin admin;			 //ADMIN CORRENTE PER LA SESSIONE
 
 	public LoginController(){
 	}
@@ -44,6 +47,7 @@ public class LoginController {
 		
 	}
 	
+	
 	private String verificaCredenzialiCliente() {
 		this.customer = datalogFacade.findCustomerByEmail(email);
 		if(customer != null) {  
@@ -56,17 +60,30 @@ public class LoginController {
 		}
 		else return "errore";
 	}
-
+	
 	private String verificaCredenzialiAdmin() {
-		this.datalog = datalogFacade.findDatalogByEmail(email);
-		if (datalog != null ) {
-			if(datalog.getPassword().equals(password)) 
+		this.admin = datalogFacade.findAdminByEmail(email);
+		if(admin != null) {
+			this.datalogAdmin = admin.getDatalogAdmin();
+			
+			if(datalogAdmin.getPassword().equals(password))
 				return "indexAdmin";
 			else
 				return "errore";
 		}
 		else return "errore";
 	}
+
+//	private String verificaCredenzialiAdmin() {
+//		this.datalog = datalogFacade.findDatalogByEmail(email);
+//		if (datalog != null ) {
+//			if(datalog.getPassword().equals(password)) 
+//				return "indexAdmin";
+//			else
+//				return "errore";
+//		}
+//		else return "errore";
+//	}
 	
 	
 	public String tornaAllaHomepage() {
@@ -150,6 +167,22 @@ public class LoginController {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
+
+	public DataLog getDatalogAdmin() {
+		return datalogAdmin;
+	}
+
+	public void setDatalogAdmin(DataLog datalogAdmin) {
+		this.datalogAdmin = datalogAdmin;
 	}
 
 }
