@@ -5,16 +5,18 @@ import it.uniroma3.login.DatalogFacade;
 import it.uniroma3.model.Customer;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
+//import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.SessionScoped;
+//import javax.faces.bean.ManagedProperty;
+
 
 
 @ManagedBean
 @SessionScoped
 public class LoginController {
 
-	@ManagedProperty(value="#{param.id}")
+//	@ManagedProperty(value="#{param.id}")
 	private Long id;
 	private String email;
 	private String password;
@@ -26,7 +28,8 @@ public class LoginController {
 	private DataLog datalog;
 	private Customer customer;		 //CLIENTE CORRENTE PER LA SESSIONE
 
-
+	public LoginController(){
+	}
 		
 	public String verificaCredenziali() {
 		String nextPage = "index";
@@ -63,6 +66,19 @@ public class LoginController {
 				return "errore";
 		}
 		else return "errore";
+	}
+	
+	
+	public String tornaAllaHomepage() {
+		return "index";
+	}
+	
+	public String tornaHomepageAdmin() {
+		return "indexAdmin";
+	}
+	
+	public String tornaHomepageCliente() {
+		return "indexCliente";
 	}
 
 

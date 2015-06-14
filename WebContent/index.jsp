@@ -22,8 +22,13 @@
 			<li><h:form>
 					<a href='<c:url value="/faces/login.jsp" />'>Log-in</a>
 				</h:form></li>
-
+				
 		</ul>
+		<h:form>
+		<br>
+			<span>Non sei registrato? Clicca</span>
+				 <a href='<c:url value="/faces/newCustomer.jsp" />'>qui</a>
+		</h:form>
 	</f:view>
 </body>
 </html>

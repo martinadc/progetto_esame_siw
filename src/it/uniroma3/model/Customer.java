@@ -1,5 +1,8 @@
 package it.uniroma3.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.uniroma3.login.DataLog;
 
 import javax.persistence.CascadeType;
@@ -9,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -29,8 +33,8 @@ public class Customer {
 		private String dateOfBirth;
 	private String registrationDate;
 	
-//	@OneToMany(mappedBy = "customer", cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-//	private List<Order> orders;
+	@OneToMany(mappedBy = "customer", cascade= {CascadeType.ALL})
+	private List<Order> orders;
 	
 	@OneToOne(cascade= {CascadeType.ALL})
 	private Address address;
@@ -47,7 +51,7 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 		this.dateOfBirth = dateOfBirth;
 		this.registrationDate = registrationDate;
-//		this.orders = new ArrayList<Order>();
+		this.orders = new ArrayList<Order>();
 	}
 
 	public Long getId() {
@@ -115,20 +119,20 @@ public class Customer {
 	}
 
 	
-//	public List<Order> getOrders() {
-//		return orders;
-//	}
-//
-//	public void setOrders(List<Order> orders) {
-//		this.orders = orders;
-//	}
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 	
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + name
 				+ ", lastName=" + surname + ", phoneNumber=" + phoneNumber + ", dateOfBirth="
-				+ dateOfBirth + ", registrationDate=" + registrationDate+ "]";
-//				+ ", orders=" + orders + ", address=" + address + "]";
+				+ dateOfBirth + ", registrationDate=" + registrationDate+ "]"
+				+ ", orders=" + orders + ", address=" + address + "]";
 	}
 
 }

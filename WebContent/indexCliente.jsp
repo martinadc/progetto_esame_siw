@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>index Cliente</title>
 </head>
 <body>
@@ -16,10 +16,24 @@
 		<h1>Benvenuto su VIDEO.it</h1>
 		<ul>
 			<li><h:form>
-					<h:commandLink action="#{productController.listProducts}"
-						value="Catalogo Prodotti" />
+					<h:commandLink action="#{productController.listProducts}" value="Catalogo Prodotti" />
 				</h:form></li>
+			<li><h:form>
+					<h:commandLink action="#{orderController.createOrder}" value="Crea Nuovo Ordine" >
+						 <f:param name="id" value="#{loginController.customer.id}"/>	
+					</h:commandLink>
+				</h:form></li> 
+			<li><h:form>
+					<h:commandLink action="#{orderController.listCustomerOrders}" value="Elenco dei tuoi Ordini" >
+					 	<f:param name="id" value="#{loginController.customer.id}"/>   
+					</h:commandLink>
+				</h:form></li>  
 		</ul>
+		<h:form>
+		<br>
+		<br>
+			<h:commandButton value="Logout"  action="#{loginController.tornaAllaHomepage}"/>
+		</h:form>
 	</f:view>
 </body>
 </html>

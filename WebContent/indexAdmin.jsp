@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <title>Index Admin</title>
 </head>
 <body>
@@ -28,7 +28,16 @@
 						value="Rubrica Indirizzi" />
 				</h:form></li>
 			<li><a href='<c:url value="/faces/find.jsp" />'>Verifica Credenziali</a></li>
+			<li><h:form>
+					<h:commandLink action="#{orderController.listOrders}"
+						value="Elenco totale degli Ordini" />
+				</h:form></li>
 		</ul>
+		<h:form>
+		<br>
+		<br>
+			<h:commandButton value="Logout"  action="#{loginController.tornaAllaHomepage}"/>
+		</h:form>
 	</f:view>
 </body>
 </html>
