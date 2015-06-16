@@ -4,7 +4,11 @@ import it.uniroma3.model.Customer;
 import it.uniroma3.model.CustomerFacade;
 import it.uniroma3.model.Order;
 import it.uniroma3.model.OrderFacade;
+import it.uniroma3.model.OrderLine;
+import it.uniroma3.model.Product;
+import it.uniroma3.model.ProductFacade;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -22,8 +26,9 @@ public class OrderController {
 	
 	private Order order;
 	private List<Order> orders;
-	private List<Order> customerOrders;
 	
+	private List<OrderLine> lines;
+		
 	private Customer customer;
 	
 	@EJB(beanName="oFacade")
@@ -32,13 +37,17 @@ public class OrderController {
 	@EJB(beanName="cFacade")
 	private CustomerFacade customerFacade;
 	
+	@EJB(beanName="pFacade")
+	private ProductFacade productFacade;
 	
+	private List<Order> customerOrders;
+		
 	public String createOrder() {
 		this.customer = customerFacade.getCustomer(id);
 		if(customer!=null){
 			this.order = new Order();
 			this.order.setCustomer(customer);
-//			this.customer.getOrders().add(order);
+
 			orderFacade.createOrder(order);		
 			return "order";
 		}
@@ -57,14 +66,23 @@ public class OrderController {
 		this.customerOrders = orderFacade.getAllCustomerOrders(id);
 		return "customerOrders";
 	}
+	
+	public String listCloseOrders() {
+		this.orders = orderFacade.getAllOrders();
+		return "closeOrders";
+	}
 
 	public String findOrder() {
 		this.order = orderFacade.getOrder(id);
+		//per le stretegie di eager ho caricato oltre all'ordine anche le sue linee ordine e i prodotti relativi
+		this.lines = this.order.getOrderLines();
 		return "order";
 	}
 	
 	public String findOrderForAdmin() {
 		this.order = orderFacade.getOrder(id);
+		//per le stretegie di eager
+		this.lines = this.order.getOrderLines();
 		return "orderAdmin";
 	}
 	
@@ -73,7 +91,59 @@ public class OrderController {
 		return "remove";
 	}
 
+	public String evadeOrder(){
+		this.order = orderFacade.getOrder(id);
+		boolean isPossibleEvasion = this.isPossibleEvasion(this.order);
+		if(isPossibleEvasion){
+			this.aggiornaOrdine(order);
+			return "orderEvasion";
+		}
+		else
+			return "errorEvasion";
+	}
 	
+	private boolean isPossibleEvasion(Order order) {
+		List<OrderLine> lines = order.getOrderLines();			//EAGER PER DEFAULT
+		boolean isPossible = true;				//se almeno una riga ordine ha quantita' maggiore 
+											    //della disponibilita' in magazzino --> false
+		for(OrderLine orderline : lines){
+			if(orderline.getQuantity() > orderline.getProduct().getQuantity())
+				isPossible = false;
+		}
+		
+		return isPossible;
+	}
+	
+	
+	private void aggiornaOrdine(Order order) {
+		order.setEvasionTime(new Date());
+		orderFacade.updateOrder(order);
+		this.aggiornaMagazzino(order);		
+	}
+
+
+	private void aggiornaMagazzino(Order order) {
+		this.lines = this.order.getOrderLines();
+		for(OrderLine orderline : lines){
+			this.aggiornaProdotto(orderline);
+		}
+		
+	}
+
+	private void aggiornaProdotto(OrderLine orderline) {
+		Product product = orderline.getProduct();
+		
+		Integer quantity = orderline.getQuantity(); 
+		Integer availableQuantity = product.getQuantity();
+		int q = quantity.intValue();
+		int avQ = availableQuantity.intValue();
+		avQ = avQ - q;
+		product.setQuantity(new Integer(avQ));
+		
+		this.productFacade.updateProduct(product);
+	}
+
+
 	public Long getId() {
 		return id;
 	}
@@ -106,6 +176,16 @@ public class OrderController {
 		this.orderFacade = orderFacade;
 	}
 
+	public ProductFacade getProductFacade() {
+		return productFacade;
+	}
+
+
+	public void setProductFacade(ProductFacade productFacade) {
+		this.productFacade = productFacade;
+	}
+
+
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -130,6 +210,16 @@ public class OrderController {
 
 	public void setCustomerOrders(List<Order> customerOrders) {
 		this.customerOrders = customerOrders;
+	}
+
+
+	public List<OrderLine> getLines() {
+		return lines;
+	}
+
+
+	public void setLines(List<OrderLine> lines) {
+		this.lines = lines;
 	}
 
 }

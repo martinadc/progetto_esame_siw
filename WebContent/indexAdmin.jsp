@@ -32,6 +32,11 @@
 					<h:commandLink action="#{orderController.listOrders}"
 						value="Elenco totale degli Ordini" />
 				</h:form></li>
+			<li><h:form>
+					<h:commandLink action="#{orderController.listCloseOrders}"
+						value="Evasione Ordine" />
+				</h:form></li>
+				
 		</ul>
 		<h:form>
 		<br>

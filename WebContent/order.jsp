@@ -17,6 +17,25 @@
 	<br> 
 	<div>Nome Cliente: ${orderController.order.customer.name} </div>   
 	<br>
+	<h2>Contenuto dell' Ordine</h2>
+	<h:form>
+		<table>
+			<tr>
+				<th>Prezzo</th><th>Quantita'</th><th>Prodotto</th><th>Codice</th><th>Descrizione</th>
+			</tr>
+			<c:forEach var="orderline" items="#{orderController.lines}">
+				<tr>
+					<td>${orderline.unitPrice}</td>
+					<td>${orderline.quantity}</td>
+					<td>${orderline.product.name}</td>
+					<td>${orderline.product.code}</td>
+					<td>${orderline.product.description}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</h:form>	
+	
+	<br>
 	<br>
 	<div>
 		<h:form>
