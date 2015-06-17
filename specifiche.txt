@@ -1,0 +1,142 @@
+PRE –CONDIZIONI:
+- L’ amministratore e il cliente effettuano le operazioni solo se identificati e autenticati.
+
+PREMESSA: 
+Per  verificare il funzionamento del codice e quindi per poter accedere a tutte le pagine di presentazione, è necessario  almeno inserire manualmente, un amministratore nel database(una riga nella tabella Admin e una nella tabella Datalog).
+
+L’uso del sistema è descritto principalmente dai seguenti casi d’uso e dalle seguenti regole di dominio:
+
+Caso d’uso UC1 : Consulta il catalogo prodotti – Attore primario : un utente generico( sia utente non registrato, sia utente registrato, sia l’ amministratore).
+Scenario principale di successo.
+1.  L’utente vuole consultare il catalogo dei prodotti.
+2.  L’utente sceglie l’attività  “consulta catalogo prodotti”.
+3.  Il sistema mostra l’elenco dei prodotti che MovieLand.it ha in vendita.
+4.  L’ utente seleziona il prodotto e ne richiede i dettagli.
+5.  Il sistema mostra i dettagli del prodotto scelto, compreso il nome,  il prezzo di acquisto,     
+     la  descrizione, e la quantità disponibile in magazzino.
+L’utente ripete i passi 4-5 un numero indefinito di volte.
+1.4a Se è l' amministratore che sta consultando il catalogo prodotti, allora può anche scegliere
+     l' attività "elimina", che comporta l' eliminazione del prodotto dal database.
+
+Caso d’uso UC2 :  Effettua ordine – Attore Primario : un cliente(utente registrato).
+Scenario principale di successo.
+1.  Un cliente vuole effettuare un nuovo ordine.
+2.  Il cliente sceglie l’attività “crea un nuovo ordine”.
+3.  Il sistema mostra il catalogo dei prodotti e la data di apertura dell’ ordine.
+4.  Il cliente inserisce il codice del prodotto da inserire nell’ordine e 
+     la quantità del prodotto scelto. Il sistema imposta il prezzo unitario del prodotto scelto al 
+     prezzo di catalogo. Il sistema aggiunge il prezzo unitario e la quantità del prodotto
+     all’ordine.
+5.   Il sistema mostra un riepilogo  del prodotto appena inserito nell’ordine.
+ Il cliente per poter aggiungere ulteriori prodotti all’ordine, torna alla sua home page,
+ Visualizza i suoi ordini, e seleziona l’opzione di modifica a questo punto ripete i passi 4-5. 
+6.  Per confermare la chiusura dell’ordine, il cliente deve tornare all’ elenco dei suoi ordini e 
+      scegliere l’ attività “chiudi”. Il sistema chiude l’ ordine e aggiunge la data di chiusura.
+      Da questo momento in poi, il cliente potrà visualizzare l’ordine creato, nell’ elenco dei suoi 
+      ordini.
+Estensioni:
+1-6a Il cliente annulla l’operazione di creazione, scegliendo l’ attività “elimina” dall’ elenco dei 
+         suoi ordini. Il sistema non registra nessuna informazione sull’ ordine.
+
+
+Caso d’uso UC3: Consultazione propri ordini – Attore primario: un cliente.
+Scenario principale di successo.
+1.  Un cliente vuole consultare l’ elenco dei propri ordini.
+2.  Il cliente sceglie l’attività “elenco dei tuoi ordini”.
+3.  Il sistema mostra l’elenco dei suoi ordini.
+4.  Il cliente chiede il dettaglio di un ordine. Il sistema mostra il dettaglio dell’ ordine compresa 
+      data di apertura, di chiusura ed eventuale  evasione dell’ordine, e tutti i dattagli delle righe 
+     di tale ordine.
+Il cliente ripete i passi 3-4 fino a quando non indica di aver terminato.
+
+
+
+
+
+Caso d’uso UC4: Inserimento prodotti nel catalogo – Attore primario: l’amministratore.
+Scenario principale di successo
+1.  L’ amministratore vuole inserire un nuovo prodottto nel catalogo.
+2.  L’ amministratore sceglie l’attività “Inserisci nuovo Prodotto”.
+3.  L’ amministratore inserisce un nuovo prodotto nel dettaglio specificandone
+      il codice, il titolo, una descrizione, la quantità di prodotto disponibile in magazzino, e il
+      prezzo.
+4. Il sistema registra il prodotto e mostra un riepilogo dei dati di tale prodotto.
+ L’amministratore ripete i passi precedenti un numero indefinito di volte.
+
+
+Caso d’ uso UC5: Accesso dell’ utente a MovieLand.it– Attore primario: utente registrato.
+Scenario principale di successo
+1.  L’ utente vuole accedere a MovieLand.it .
+2.  L’ utente sceglie l’ attività “Log-in”.
+3.   L’utente registrato inserisce il suo indirizzo di posta elettronica e la sua password. 
+      Il  sistema verifica  la correttezza  dei dati ammessi, e autentica il l’ utente. Il sistema 
+      Mostra il  nome del cliente e un elenco delle attività che ora esso può scegliere.
+
+Caso d’ uso UC6: Registrazione cliente presso MovieLand.it– Attore primario: utente non  registrato.
+Scenario principale di successo
+1.  L’ utente vuole registrarsi presso MovieLand.it .
+2.  L’ utente sceglie l’ attività “Registrati”.
+3.  L’ utente inserisce i suoi dati personali specificando nome, cognome, data di nascita, i 
+     dettagli del proprio indirizzo e inoltre le credenziali per accedere al sistema (email, 
+     password). L’ utente conferma l’inserimento.
+4.  Il sistema mostra un riepilogo dei dati inseriti, eccetto le credenziali.
+
+Caso d’ uso UC7:Anagrafica clienti– Attore primario: l’ amministratore.
+Scenario principale di successo
+1.  L’ amministratore vuole consultare l’ anagrafica dei clienti.
+2.  L’ amministratore sceglie l’attività “anagrafica clienti”.
+3.  Il sistema mostra per ogni cliente di MovieLand.it , nome e cognome.
+4.  L’amministratore può chiedere il dettaglio di un cliente. Il  sistema mostra tutti i dati
+     relativi a tale cliente. 
+Estensioni:
+1-4a L’ amministratore può chiedere la rimozione del cliente dal database.
+
+ Caso d’ uso UC8: Inserisci cliente– Attore primario: l’ amministratore.
+Scenario principale di successo
+1.  L’ amministratore vuole inserire un nuovo cliente.
+2.  L’ amministratore sceglie l’attività “Inserisci nuovo cliente”.
+3.  L’ amministratore inserisce dati personali del cliente specificando nome, cognome, data di 
+      nascita, i dettagli del proprio indirizzo e inoltre le credenziali per accedere al  
+      sistema(email, password). L’ amministratore conferma l’inserimento del cliente.
+4.  Il sistema mostra un riepilogo dei dati inseriti, eccetto le credenziali.
+
+
+
+Caso d’ uso UC9: Rubrica indirizzi– Attore primario: l’ amministratore.
+Scenario principale di successo
+1.  L’ amministratore vuole visionare gli indirizzi relativi a tutti i clienti di MovieLand.it .
+2.  L’ amministratore sceglie l’attività “Rubrica indirizzi”.
+3.  Il sistema mostra l’ elenco degli indirizzi relativi a tutti i clienti di MovieLand.it .
+4.  L’amministratore chiede dettagli ulteriori di un indirizzo. Il sistema mostra gli ulteriori 
+     dettagli.
+
+
+
+Caso d’ uso UC10: Cerca un prodotto nel catalogo– Attore primario: l’ amministratore.
+Scenario principale di successo
+1.  L’ amministratore vuole cercare un prodotto all’interno del catalogo prodotti.
+2.  L’ amministratore sceglie l’attività “Cerca prodotto”.
+3. L’ amministratore inserisce il codice del prodotto che sta cercando.
+3.  Il sistema mostra tutti i dettagli relativi al prodotto.
+
+
+Caso d’ uso UC11: Visione dell’ elenco di tutti gli ordini effettuati su MovieLand.it– Attore primario: l’ amministratore.
+Scenario principale di successo
+1.  L’ amministratore vuole visionare l’ elenco di tutti gli ordini effettuati su MovieLand.it
+2.  L’ amministratore sceglie l’attività “Elenco totale ordini”.
+3.  Il sistema mostra l’ elenco di tutti gli ordini (sia aperti, sia chiusi, sia evasi).
+4.  L’ amministratore può chiedere i dettagli di un ordine. Il sistema mostra i dettagli 
+     dell’ ordine e di tutti i prodotti ordinati.
+
+Caso d’ uso UC12: Evasione di un ordine– Attore primario: l’ amministratore.
+Scenario principale di successo
+1.  L’ amministratore vuole evadere un ordine.
+2.  L’ amministratore sceglie l’attività “Evasione ordine”.
+3.  Il sistema mostra all’ amministratore, l’ elenco di tutti gli ordini,ma solo per gli ordini
+     chiusi, ma non evasi, permette di scegliere l’ attività “spedisci”.
+4.  L’amministratore sceglie, tra gli ordini chiusi, l’ ordine da evadere.
+5.  Il sistema aggiorna la data di evasione dell’ ordine e aggiorna la quantità dei prodotti in
+     magazzino(sottraendo la quantità di prodotti usati per l’ordine).
+Estensioni:
+1-5a  Alcuni prodotti potrebbero non essere presenti in magazzino nella quantità specificata
+           dall’ ordine. In tal caso il sistema mostra un messaggio di errore.

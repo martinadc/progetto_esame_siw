@@ -1,0 +1,18 @@
+"PLUS" da noi utilizzati:
+- utilizzo di JSF per lo sviluppo del progetto
+- utilizzo di Bootstrap per l'homepage del sito
+- minima cura dell'interfaccia utente con CSS relativa a tutte le altre pagine jsp di presentazione
+
+- abbiamo implementato la presentazione di tutti i casi d'uso da Lei proposti (per alcuni
+  di essi sono state apportate delle modifiche) e di ulteriori casi d'uso da noi introdotti ed 
+  indicati nel file specifiche.txt
+  
+
+	
+NB: Non siamo riuscite ad ottenere una grafica soddisfacente, con l'utilizzo di Bootstrap, poiche' abbiamo
+    riscontrato difficolta' nell'inserire Bootstrap nel progetto realizzato con JSF.
+
+Pertanto alleghiamo un ulteriore pagina index-boot.jsp per l'homepage del sito realizzata con Bootstrap,
+    in cui rispetto alla versione caricata su github avevamo implementato anche la barra per il login.
+	Abbiamo poi dovuto rimuoverla per motivi di incompatibilita tra i tag richiesti da jsf e
+    quelli richiesti da Bootstrap.
