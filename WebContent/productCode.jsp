@@ -15,11 +15,11 @@
 <f:view>
 <h1>Codice Prodotto:</h1>
 <h:form>
-    <div>Codice: <h:inputText value="#{productController.code}" 
+    <div id="buttonPcode">Codice: <h:inputText value="#{productController.code}" 
                      required="true"
                      requiredMessage="campo Codice obbligatorio" id="code"/> <h:message for="code" />
 	</div>
-	<div>
+	<div id="buttonPcode">
 		<h:commandButton value="Cerca"  action="#{productController.findProductByCode}"/>
 	</div>
 	

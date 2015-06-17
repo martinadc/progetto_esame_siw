@@ -15,32 +15,32 @@
 <f:view>
 <h1>Nuovo Prodotto</h1>
 <h:form>
-    <div>Nome: <h:inputText value="#{productController.name}" 
+    <div id="newProduct">Nome: <h:inputText value="#{productController.name}" 
                      required="true"
                      requiredMessage="campo Nome obbligatorio" id="name"/> <h:message for="name" />
 	</div>
-    <div>Codice: <h:inputText value="#{productController.code}" 
+    <div id="newProduct">Codice: <h:inputText value="#{productController.code}" 
                      required="true"
                      requiredMessage="campo Codice obbligatorio" id="code"/> <h:message for="code" />
 	</div>
-    <div>Prezzo: <h:inputText value="#{productController.price}" 
+    <div id="newProduct">Prezzo: <h:inputText value="#{productController.price}" 
                      required="true"
                      requiredMessage="campo Prezzo obbligatorio"
                      converterMessage="Prezzo deve essere un numero"
                      id="price"/> <h:message for="price" />
 	</div>
-    <div>Descrizione: <h:inputTextarea value="#{productController.description}" 
+    <div id="newProduct">Descrizione: <h:inputTextarea value="#{productController.description}" 
     				required="false" 
     				cols="20" 
     				rows="5" /> 
     </div>
-    <div>Quantita' Disponibile: <h:inputText value="#{productController.quantity}" 
+    <div id="newProduct">Quantita' Disponibile: <h:inputText value="#{productController.quantity}" 
                      required="true"
                      requiredMessage="campo Quantita' obbligatorio"
                      converterMessage="Quantita' deve essere un numero"
                      id="quantity"/> <h:message for="quantity" />
 	</div>
-	<div>
+	<div id="newProduct">
 		<h:commandButton value="Inserisci"  action="#{productController.createProduct}"/>
 	</div>
 	

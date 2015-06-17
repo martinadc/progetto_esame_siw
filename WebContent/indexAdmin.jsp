@@ -46,6 +46,12 @@
 				</h:form>
 			</div>
 			
+			<div id="indexAdmin" align="center">
+			<h:form>
+					<h:commandLink action="#{orderController.listCloseOrders}"
+						value="Evasione Ordine" />
+				</h:form>
+				</div>
 		<h:form>
 		<br>
 		<br>

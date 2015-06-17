@@ -15,23 +15,23 @@
 	<f:view>
 		<h1>Immetti Credenziali</h1>
 		<h:form>
-			<div>
+			<div id="findC">
 				Email:
 				<h:inputText value="#{datalogController.email}"
 					requiredMessage="campo Email obbligatorio" id="email" />
 				<h:message for="email" />
 			</div>
-			<div>
+			<div id="findC">
 				Password:
 				<h:inputText value="#{datalogController.password}" required="true"
 					requiredMessage="campo Password obbligatorio" id="password" />
 				<h:message for="password" />
 			</div>
-			<div>
+			<div id="findC">
 				<h:commandButton value="Cerca Credenziali" action="#{datalogController.findDatalogByEmail}" />
 			</div>
 			<br>
-			<div>
+			<div id="findC">
 				<h:commandButton value="Cerca Cliente" action="#{datalogController.findCustomerByEmail}" />
 			</div>
 		</h:form>

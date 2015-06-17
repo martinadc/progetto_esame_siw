@@ -39,20 +39,20 @@
 		<br>
 		<h2>Inserisci i dati del prodotto che vuoi aggiungere all'ordine:</h2>
 		<h:form>
-			<div>Quantita':	<h:inputText value="#{orderLineController.quantity}" 
+			<div id="orderCreated">Quantita':	<h:inputText value="#{orderLineController.quantity}" 
 					required="true"
 					requiredMessage="campo Quantita' obbligatorio"
 					converterMessage="Quantita' deve essere un numero" id="quantity" />
 				<h:message for="quantity" />
 			</div> 
-			<div>Codice Prodotto:	<h:inputText value="#{orderLineController.productCode}" 
+			<div id="orderCreated">Codice Prodotto:	<h:inputText value="#{orderLineController.productCode}" 
 					required="true"
 					requiredMessage="campo Codice Prodotto obbligatorio"
 					id="productcode" />
 				<h:message for="productcode" />
 			</div> 
 
-			<div>
+			<div id="orderCreated">
 				<h:commandButton value="Inserisci"
 					action="#{orderLineController.createOrderLine}">
 					<f:param name="id" value="#{orderController.order.id}" />

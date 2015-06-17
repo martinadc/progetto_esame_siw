@@ -15,25 +15,25 @@
 	<f:view>
 		<h1>Nuovo Indirizzo</h1>
 		<h:form>
-			<div>
+			<div id="newAddress">
 				Via:
 				<h:inputText value="#{addressController.street}" required="true"
 					requiredMessage="Campo Via obbligatorio" id="street" />
 				<h:message for="street" />
 			</div>
-			<div>
+			<div id="newAddress">
 				Citta':
 				<h:inputText value="#{addressController.city}" required="true"
 					requiredMessage="Campo Citta' obbligatorio" id="city" />
 				<h:message for="city" />
 			</div>
-			<div>
+			<div id="newAddress">
 				Stato:
 				<h:inputText value="#{addressController.state}" required="true"
 					requiredMessage="Campo Stato obbligatorio" id="state" />
 				<h:message for="state" />
 			</div>
-			<div>
+			<div id="newAddress">
 				CAP:
 				<h:inputText value="#{addressController.cap}" required="true"
 					requiredMessage="Campo CAP obbligatorio"
@@ -42,13 +42,13 @@
 				<h:message for="cap" />
 
 			</div>
-			<div>
+			<div id="newAddress">
 				Provincia:
 				<h:inputText value="#{addressController.province}" required="true"
 					requiredMessage="Campo Provincia obbligatorio" id="province" />
 				<h:message for="province" />
 			</div>
-			<div>
+			<div id="newAddress">
 				<h:commandButton value="Inserisci"
 					action="#{addressController.createAddress}" />
 			</div>
