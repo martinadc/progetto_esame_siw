@@ -6,6 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/bootstrap.min.theme.css" rel="stylesheet">
+<link href="resources/css/cineteca.css" rel="stylesheet">
 <title>	ERRORE</title>
 </head>
 <body>
