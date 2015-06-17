@@ -15,10 +15,11 @@
 <h:form>
 <table>
 	<tr>
-		<th>Data Apertura</th><th>Data Chiusura</th> <th>Data Evasione</th>
+		<th>ID Ordine</th><th>Data Apertura</th><th>Data Chiusura</th> <th>Data Evasione</th>
 	</tr>
 	<c:forEach var="order" items="#{orderController.customerOrders}">
 		<tr>
+		<td>${order.id}</td>
 		<td>${order.openTime}</td>
 		<td>${order.closeTime}</td>
 		<td>${order.evasionTime}</td>
@@ -32,6 +33,20 @@
 				<f:param name="id" value="#{order.id}" />
 			</h:commandLink>
 		</td>
+		<c:if test="${order.closeTime == null}">
+			<c:if test="${order.evasionTime == null}">
+				<td>
+					<h:commandLink action="#{orderController.modificaOrder}" value="Modifica">
+						<f:param name="id" value="#{order.id}" />
+					</h:commandLink>  
+				</td>
+				<td>
+					<h:commandLink action="#{orderController.closeOrder}" value="Chiudi">
+						<f:param name="id" value="#{order.id}" />
+					</h:commandLink>  
+				</td>
+			</c:if>
+		</c:if> 
 		</tr>
 	</c:forEach>
 </table>

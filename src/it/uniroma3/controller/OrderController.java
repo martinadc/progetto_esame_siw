@@ -22,7 +22,7 @@ import javax.faces.bean.ManagedProperty;
 public class OrderController {
 
 	@ManagedProperty(value="#{param.id}")
-	private Long id;						//parametro che rappresenta l'id del cliente
+	private Long id;						
 	
 	private Order order;
 	private List<Order> orders;
@@ -41,18 +41,39 @@ public class OrderController {
 	private ProductFacade productFacade;
 	
 	private List<Order> customerOrders;
+	private List<Product> productsCatalog;
+	
+	public OrderController() {
+		
+	}
 		
 	public String createOrder() {
 		this.customer = customerFacade.getCustomer(id);
 		if(customer!=null){
+			this.productsCatalog = productFacade.getAllProducts();
+			
 			this.order = new Order();
 			this.order.setCustomer(customer);
-
 			orderFacade.createOrder(order);		
-			return "order";
+			return "orderCreated";
 		}
 		else
 			return "indexCliente";
+	}
+	
+	public String modificaOrder() {
+		this.productsCatalog = productFacade.getAllProducts();
+		this.order = orderFacade.getOrder(id);
+		return "orderCreated";
+	}
+	
+	public String closeOrder() {
+		this.order = orderFacade.getOrder(id);
+		this.order.setCloseTime(new Date());
+		orderFacade.updateOrder(order);
+		
+		return "orderClosed";
+		
 	}
 	
 	
@@ -143,6 +164,8 @@ public class OrderController {
 		this.productFacade.updateProduct(product);
 	}
 
+	
+
 
 	public Long getId() {
 		return id;
@@ -220,6 +243,16 @@ public class OrderController {
 
 	public void setLines(List<OrderLine> lines) {
 		this.lines = lines;
+	}
+
+
+	public List<Product> getProductsCatalog() {
+		return productsCatalog;
+	}
+
+
+	public void setProductsCatalog(List<Product> productsCatalog) {
+		this.productsCatalog = productsCatalog;
 	}
 
 }

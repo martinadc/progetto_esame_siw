@@ -21,7 +21,7 @@ public class OrderLine {
 	@Column(nullable = false)
 	private Integer quantity;
 	
-	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE}) // NO cascadeType.REMOVE perche' mi interessa mantenere i prodotti
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})					// no cascade perche' mi interessa mantenere i prodotti
 	private Product product;
 	
 	public OrderLine(){

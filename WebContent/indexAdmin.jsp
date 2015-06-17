@@ -27,6 +27,9 @@
 					<h:commandLink action="#{addressController.listAddress}"
 						value="Rubrica Indirizzi" />
 				</h:form></li>
+			<li><h:form>
+					<a href='<c:url value="/faces/productCode.jsp" />'>Cerca Prodotto</a>
+				</h:form></li>
 			<li><a href='<c:url value="/faces/find.jsp" />'>Verifica Credenziali</a></li>
 			<li><h:form>
 					<h:commandLink action="#{orderController.listOrders}"

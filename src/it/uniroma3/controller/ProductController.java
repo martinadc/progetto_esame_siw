@@ -38,6 +38,11 @@ public class ProductController {
 		this.products = productFacade.getAllProducts();
 		return "products"; 
 	}
+	
+	public String listProductsCustomer() {
+		this.products = productFacade.getAllProducts();
+		return "productsCustomer"; 
+	}
 
 	public String findProduct() {
 		this.product = productFacade.getProduct(id);
@@ -46,6 +51,11 @@ public class ProductController {
 	
 	public String findProduct(Long id) {
 		this.product = productFacade.getProduct(id);
+		return "product";
+	}
+	
+	public String findProductByCode() {
+		this.product = productFacade.findProductByCode(code);
 		return "product";
 	}
 	

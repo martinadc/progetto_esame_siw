@@ -15,14 +15,13 @@
 		<ul>
 
 			<li><h:form>
-					<h:commandLink action="#{productController.listProducts}"
+					<h:commandLink action="#{productController.listProductsCustomer}"
 						value="Catalogo Prodotti" />
 				</h:form></li>
 
 			<li><h:form>
 					<a href='<c:url value="/faces/login.jsp" />'>Log-in</a>
-				</h:form></li>
-				
+				</h:form></li>				
 		</ul>
 		<h:form>
 		<br>

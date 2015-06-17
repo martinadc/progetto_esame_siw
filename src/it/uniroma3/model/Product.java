@@ -17,7 +17,8 @@ import it.uniroma3.model.Provider;
 
 @Entity
 @NamedQueries({@NamedQuery(name = "findAllProducts", query = "SELECT p FROM Product p"),
-	@NamedQuery(name = "findAllProviders", query= "SELECT p.providers FROM Product p WHERE p.id= :id")})
+	@NamedQuery(name = "findAllProviders", query= "SELECT p.providers FROM Product p WHERE p.id= :id"),
+	@NamedQuery(name = "findProductByCode", query = "SELECT p FROM Product p WHERE p.code = :code")})
 public class Product {
 
 	@Id

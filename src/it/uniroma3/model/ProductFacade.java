@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import it.uniroma3.model.Provider;
@@ -54,12 +55,17 @@ public class ProductFacade {
 		return productList;
 	}
 	
-//	public List<Product> getAllProducts() {
-//        CriteriaQuery<Product> cq = em.getCriteriaBuilder().createQuery(Product.class);
-//        cq.select(cq.from(Product.class));
-//        List<Product> products = em.createQuery(cq).getResultList();
-//		return products;
-//	}
+	public Product findProductByCode(String code){
+		try {
+			Query query = this.em.createNamedQuery("findProductByCode", Product.class);
+			query.setParameter("code", code);
+			Product product = (Product) query.getSingleResult();
+			return product;
+		}
+		catch(Exception ex){
+			return null;
+		}
+	}
 	
 	
 }

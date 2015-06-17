@@ -74,18 +74,7 @@ public class LoginController {
 		else return "errore";
 	}
 
-//	private String verificaCredenzialiAdmin() {
-//		this.datalog = datalogFacade.findDatalogByEmail(email);
-//		if (datalog != null ) {
-//			if(datalog.getPassword().equals(password)) 
-//				return "indexAdmin";
-//			else
-//				return "errore";
-//		}
-//		else return "errore";
-//	}
-	
-	
+
 	public String tornaAllaHomepage() {
 		return "index";
 	}
